@@ -21,6 +21,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors );
 // Import App
 @import './components/mixins';
 @import './components/buttons';
+@import './components/heading-line'; 
 @import './fonts';
 @import './navbar'; 
 @import './intro'; 
+@import './services'; 
+
