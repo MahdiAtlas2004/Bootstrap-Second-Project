@@ -27,4 +27,5 @@ $theme-colors: map-merge($theme-colors, $custom-colors );
 @import './intro'; 
 @import './services'; 
 @import './comments'; 
+@import './faq';
 
