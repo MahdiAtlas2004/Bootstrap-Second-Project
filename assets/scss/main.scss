@@ -28,4 +28,4 @@ $theme-colors: map-merge($theme-colors, $custom-colors );
 @import './services'; 
 @import './comments'; 
 @import './faq';
-
+@import './portfolio';
