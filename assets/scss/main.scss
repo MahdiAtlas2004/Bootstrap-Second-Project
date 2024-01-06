@@ -1,6 +1,7 @@
 // custom variable
-$primary:  #198754;
-$secondary:  #d63384;
+$primary:  #fe8c00;
+$secondary:  #f83600;
+
 
 //Create you own map
 $custom-colors:(
@@ -14,4 +15,10 @@ $custom-colors:(
 //Merge the maps
 $theme-colors: map-merge($theme-colors, $custom-colors );
 
+// Import Bootstrap
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Import App
+@import './components/mixins';
+@import './fonts';
+@import './navbar'; 
