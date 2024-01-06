@@ -17,9 +17,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors );
 
 // Import Bootstrap
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
-
+ 
 // Import App
 @import './components/mixins';
 @import './components/buttons';
 @import './fonts';
 @import './navbar'; 
+@import './intro'; 

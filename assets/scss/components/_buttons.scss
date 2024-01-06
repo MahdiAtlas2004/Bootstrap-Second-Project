@@ -6,5 +6,6 @@
     &:hover{
         background-color: $secondary;
         color: $white;
+        border: 0.1rem solid rgba($white, 0.6);
     }
 }
