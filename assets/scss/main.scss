@@ -1,1 +1,17 @@
+// custom variable
+$primary:  #198754;
+$secondary:  #d63384;
+
+//Create you own map
+$custom-colors:(
+    "red-dark": #900,
+    "red-light": rgb(244, 102, 102)
+);
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+//Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors );
+
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
