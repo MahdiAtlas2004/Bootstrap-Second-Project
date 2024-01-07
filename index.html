@@ -307,7 +307,7 @@
     </section>
 
     <!-- Portfolio -->
-    <section class="my-5">
+    <section class="my-5" x-data="tabs">
         <div class="container">
             <div class="row text-center">
                 <h1 class="fs-3 fw-bold">لورم ایپسوم متن</h1>
@@ -318,56 +318,38 @@
 
             <div class="row mt-5">
                 <div class="col-12 text-center">
-                    <button class="btn btn-rounded-primary border-primary">طبیعت</button>
-                    <button class="btn btn-rounded-primary border-primary mx-3">تکنولوژی</button>
-                    <button class="btn btn-rounded-primary border-primary">مسافرت</button>
-                    <button class="btn btn-rounded-primary border-primary me-3">همه</button>
+                    <template x-for="(tab, index) in tabs" :key="index">
+                        <button class="btn btn-rounded-primary border-primary me-2"
+                            x-text="tab.display_category">طبیعت</button>
+                        <button class="btn btn-rounded-primary border-primary mx-3">تکنولوژی</button>
+                        <button class="btn btn-rounded-primary border-primary">مسافرت</button>
+                        <button class="btn btn-rounded-primary border-primary me-3">همه</button>
+                    </template>
                 </div>
             </div>
 
-            <div class="row mt-5">
-                <div class="col-lg-4 col-md-6">
-                    <div class="box shadow">
-                        <img class="img-fluid rounded" src="assets/images/portfolio/nature/img_1.jpg" alt="p">
-                        <div class="info align-items-center d-flex flex-column h-100 w-100 justify-content-center position-absolute start-50 text-center text-white top-50 translate-middle w-100">
-                            <h4>لورم ایپسوم </h4>
-                            <p>لورم ایپسوم متن ساختگی</p>
+            <template x-for="(tab, index) in tabs" :key="index">
+                <div class="row mt-5" x-show="tab.category === tabName">
+                    <template x-for="(item, index) in tab.images" :key="index">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="box shadow">
+                                <img class="img-fluid rounded" :src="item.image" alt="p">
+                                <div
+                                    class="info align-items-center d-flex flex-column h-100 w-100 justify-content-center position-absolute start-50 text-center text-white top-50 translate-middle w-100">
+                                    <h4 x-text="item.title"></h4>
+                                    <p>لورم ایپسوم متن ساختگی</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </template>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box shadow">
-                        <img class="img-fluid rounded" src="assets/images/portfolio/nature/img_2.jpg" alt="p">
-                        <div class="info align-items-center d-flex flex-column h-100 w-100 justify-content-center position-absolute start-50 text-center text-white top-50 translate-middle w-100">
-                            <h4>لورم ایپسوم </h4>
-                            <p>لورم ایپسوم متن ساختگی</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box shadow">
-                        <img class="img-fluid rounded" src="assets/images/portfolio/nature/img_3.jpg" alt="p">
-                        <div class="info align-items-center d-flex flex-column h-100 w-100 justify-content-center position-absolute start-50 text-center text-white top-50 translate-middle w-100">
-                            <h4>لورم ایپسوم </h4>
-                            <p>لورم ایپسوم متن ساختگی</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </template>
         </div>
     </section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
 
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 
 </html>
