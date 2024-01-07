@@ -319,17 +319,14 @@
             <div class="row mt-5">
                 <div class="col-12 text-center">
                     <template x-for="(tab, index) in tabs" :key="index">
-                        <button class="btn btn-rounded-primary border-primary me-2"
+                        <button @click="tabName = tab.category" class="btn btn-rounded-primary border-primary me-2"
                             x-text="tab.display_category">طبیعت</button>
-                        <button class="btn btn-rounded-primary border-primary mx-3">تکنولوژی</button>
-                        <button class="btn btn-rounded-primary border-primary">مسافرت</button>
-                        <button class="btn btn-rounded-primary border-primary me-3">همه</button>
                     </template>
                 </div>
             </div>
 
             <template x-for="(tab, index) in tabs" :key="index">
-                <div class="row mt-5" x-show="tab.category === tabName">
+                <div class="row g-4 mt-5" x-show="tab.category === tabName">
                     <template x-for="(item, index) in tab.images" :key="index">
                         <div class="col-lg-4 col-md-6">
                             <div class="box shadow">
@@ -337,7 +334,7 @@
                                 <div
                                     class="info align-items-center d-flex flex-column h-100 w-100 justify-content-center position-absolute start-50 text-center text-white top-50 translate-middle w-100">
                                     <h4 x-text="item.title"></h4>
-                                    <p>لورم ایپسوم متن ساختگی</p>
+                                    <p x-text="item.caption"></p>
                                 </div>
                             </div>
                         </div>
@@ -350,6 +347,167 @@
 
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('tabs', () => ({
+                tabName: 'nature',
+                tabs: [
+                    {
+                        'category': 'nature',
+                        'display_category': 'طبیعت',
+                        'images': [
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی ',
+                                'image': './assets/images/portfolio/nature/img_1.jpg'
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی ',
+                                'image': './assets/images/portfolio/nature/img_2.jpg'
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی ',
+                                'image': './assets/images/portfolio/nature/img_3.jpg'
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی ',
+                                'image': './assets/images/portfolio/nature/img_4.jpg'
+                            }
+                        ]
+                    },
+                    {
+                        'category': 'technology',
+                        'display_category': 'تکنولوژی',
+                        'title': 'لورم ایپسوم ',
+                        'caption': 'لورم ایپسوم متن ساختگی',
+                        'images': [
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/technology/img_1.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/technology/img_2.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/technology/img_3.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/technology/img_4.jpg',
+                            }
+                        ]
+                    },
+                    {
+                        'category': 'travel',
+                        'display_category': 'مسافرت',
+                        'title': 'لورم ایپسوم ',
+                        'caption': 'لورم ایپسوم متن ساختگی',
+                        'images': [
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/travel/img_1.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/travel/img_2.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/travel/img_3.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/travel/img_4.jpg',
+                            }
+
+                        ]
+                    },
+                    {
+                        'category': 'all',
+                        'display_category': 'همه',
+                        'title': 'لورم ایپسوم ',
+                        'caption': 'لورم ایپسوم متن ساختگی',
+                        'images':[
+                        {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی ',
+                                'image': './assets/images/portfolio/nature/img_1.jpg'
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی ',
+                                'image': './assets/images/portfolio/nature/img_2.jpg'
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی ',
+                                'image': './assets/images/portfolio/nature/img_3.jpg'
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی ',
+                                'image': './assets/images/portfolio/nature/img_4.jpg'
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/technology/img_1.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/technology/img_2.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/technology/img_3.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/technology/img_4.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/travel/img_1.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/travel/img_2.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/travel/img_3.jpg',
+                            },
+                            {
+                                'title': 'لورم ایپسوم',
+                                'caption': 'لورم ایپسوم متن ساختگی',
+                                'image': './assets/images/portfolio/travel/img_4.jpg',
+                            }
+
+                        ]
+                    }
+                ],
+            }))
+        })
+    </script>
 </body>
 
 </html>
